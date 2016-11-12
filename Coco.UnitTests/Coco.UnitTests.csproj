@@ -71,8 +71,10 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Models\Test.cs" />
     <Compile Include="Models\TestSource.cs" />
+    <Compile Include="Tests\WebContentTests.cs" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="app.config" />
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
