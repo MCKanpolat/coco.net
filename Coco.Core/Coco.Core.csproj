@@ -63,7 +63,7 @@
     <Compile Include="Web\Resolvers\CssSelectionResolver.cs" />
     <Compile Include="Web\Resolvers\CustomResolver.cs" />
     <Compile Include="Web\FooBar.cs" />
-    <Compile Include="Web\IPropertyValueResolver.cs" />
+    <Compile Include="Web\IWebValueResolver.cs" />
     <Compile Include="Web\DefaultItemValueResolverBuilder.cs" />
     <Compile Include="Web\PropertyValueResolverBuilder.cs" />
     <Compile Include="Web\IValueResolverBuilder.cs" />

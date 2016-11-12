@@ -1,17 +1,25 @@
 ﻿namespace Coco.Core.Web
 {
-    public class FooBar<TData> : IPropertyValueResolver<object>
+    using System.Collections.Generic;
+    using System.Linq;
+
+    public class FooBar<TData> : IWebValueResolver<object>
     {
-        private readonly IPropertyValueResolver<TData> propertyValueResolver;
+        private readonly IWebValueResolver<TData> webValueResolver;
         
-        public FooBar(IPropertyValueResolver<TData> propertyValueResolver)
+        public FooBar(IWebValueResolver<TData> webValueResolver)
         {
-            this.propertyValueResolver = propertyValueResolver;
+            this.webValueResolver = webValueResolver;
         }
 
-        public object GetMe(string content)
+        public object GetValue(string content)
         {
-            return this.propertyValueResolver.GetMe(content);
-        }        
+            return this.webValueResolver.GetValue(content);
+        }
+
+        public IEnumerable<object> GetValues(string content)
+        {
+            return this.webValueResolver.GetValues(content).OfType<object>();
+        }
     }
 }

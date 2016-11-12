@@ -9,9 +9,9 @@
     {
         private readonly string propertyId;
 
-        private readonly IDictionary<string, IPropertyValueResolver<object>> propertyValueResolvers;
+        private readonly IDictionary<string, IWebValueResolver<object>> propertyValueResolvers;
 
-        public PropertyValueResolverBuilder(IDictionary<string, IPropertyValueResolver<object>> propertyValueResolvers, string propertyId)
+        public PropertyValueResolverBuilder(IDictionary<string, IWebValueResolver<object>> propertyValueResolvers, string propertyId)
         {
             if (propertyValueResolvers == null)
             {
@@ -44,14 +44,14 @@
             this.AddPropertyValueResolver(this.propertyId, new FooBar<TData>(new CustomResolver<TData>(resolver)));
         }
 
-        private void AddPropertyValueResolver(string propertyId, IPropertyValueResolver<object> propertyValueResolver)
+        private void AddPropertyValueResolver(string propertyId, IWebValueResolver<object> webValueResolver)
         {
             if (this.propertyValueResolvers.ContainsKey(propertyId))
             {
                 throw new InvalidOperationException($"Property {propertyId} already has a value resolver registered");
             }
 
-            this.propertyValueResolvers.Add(propertyId, propertyValueResolver);
+            this.propertyValueResolvers.Add(propertyId, webValueResolver);
         }
     }
 }

@@ -2,6 +2,8 @@
 {
     public interface IWebEntityConfiguration
     {
-        IPropertyValueResolver<object> GetResolver(string propertyId);
+        IWebValueResolver<string> GetItemValueResolver();
+
+        IWebValueResolver<object> GetPropertyValueResolver(string propertyId);
     }
 }

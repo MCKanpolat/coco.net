@@ -1,8 +1,9 @@
 ﻿namespace Coco.Core.Web.Resolvers
 {
     using System;
+    using System.Collections.Generic;
 
-    public class CssSelectionResolver<TData> : IPropertyValueResolver<TData>
+    public class CssSelectionResolver<TData> : IWebValueResolver<TData>
     {
         private readonly string cssSelection;
 
@@ -16,7 +17,12 @@
             this.cssSelection = cssSelection;
         }
 
-        public TData GetMe(string content)
+        public TData GetValue(string content)
+        {
+            throw new NotImplementedException("remove");
+        }
+
+        public IEnumerable<TData> GetValues(string content)
         {
             throw new NotImplementedException("remove");
         }

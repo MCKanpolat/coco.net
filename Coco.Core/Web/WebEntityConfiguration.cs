@@ -6,16 +6,19 @@
 
     public class WebEntityConfiguration<TDto> : IWebEntityConfiguration
     {
-        private readonly IDictionary<string, IPropertyValueResolver<object>> propertyValueResolvers;
+        private readonly IDictionary<string, IWebValueResolver<object>> propertyValueResolvers;
+
+        private DefaultItemValueResolverBuilder itemValueResolverBuilder;
 
         public WebEntityConfiguration()
         {
-            this.propertyValueResolvers = new Dictionary<string, IPropertyValueResolver<object>>();
+            this.propertyValueResolvers = new Dictionary<string, IWebValueResolver<object>>();
         }
 
         protected IValueResolverBuilder<string> Item()
         {
-            return new DefaultItemValueResolverBuilder();
+            this.itemValueResolverBuilder = new DefaultItemValueResolverBuilder();
+            return this.itemValueResolverBuilder;
         }
 
         protected IValueResolverBuilder<TProperty> Property<TProperty>(Expression<Func<TDto, TProperty>> propertySelector)
@@ -36,13 +39,18 @@
                 expression.Member.Id());
         }
 
-        public IPropertyValueResolver<object> GetResolver(string propertyId)
+        public IWebValueResolver<object> GetPropertyValueResolver(string propertyId)
         {
             var resolver = this.propertyValueResolvers.ContainsKey(propertyId) 
                 ? this.propertyValueResolvers[propertyId]
                 : null;
 
             return resolver;
+        }
+
+        public IWebValueResolver<string> GetItemValueResolver()
+        {
+            return this.itemValueResolverBuilder?.ItemValueResolver;
         }
     }
 }

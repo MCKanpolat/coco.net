@@ -1,8 +1,9 @@
 namespace Coco.Core.Web.Resolvers
 {
     using System;
+    using System.Collections.Generic;
 
-    public class CustomResolver<TData> : IPropertyValueResolver<TData>
+    public class CustomResolver<TData> : IWebValueResolver<TData>
     {
         private readonly Func<string, TData> resolver;
 
@@ -11,9 +12,14 @@ namespace Coco.Core.Web.Resolvers
             this.resolver = resolver;
         }
 
-        public TData GetMe(string content)
+        public TData GetValue(string content)
         {
             return this.resolver(content);
+        }
+
+        public IEnumerable<TData> GetValues(string content)
+        {
+            throw new NotImplementedException();
         }
     }
 }

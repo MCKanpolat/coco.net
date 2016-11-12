@@ -6,7 +6,7 @@
 
     public class DefaultItemValueResolverBuilder : IValueResolverBuilder<string>
     {
-        private IPropertyValueResolver<string> itemValueResolver;
+        private IWebValueResolver<string> itemValueResolver;
         
         public void InnerHtml(string cssSelection)
         {
@@ -23,6 +23,6 @@
             this.itemValueResolver = new CustomResolver<string>(resolver);
         }
 
-        public IPropertyValueResolver<string> ItemValueResolver => this.itemValueResolver;
+        public IWebValueResolver<string> ItemValueResolver => this.itemValueResolver;
     }
 }

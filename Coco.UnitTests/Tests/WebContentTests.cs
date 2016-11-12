@@ -25,7 +25,7 @@
     {
         public GoogleResultConfiguration()
         {
-            this.Item().FromCss("div.rc");
+            this.Item().InnerHtml("div.g");
             this.Property(r => r.Title).InnerHtml("h3.r a");
             this.Property(r => r.Description).InnerHtml("span.st");
         }
