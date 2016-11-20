@@ -5,6 +5,7 @@
     using System.Linq;
 
     using Coco.Web;
+    using Coco.Web.Parsers;
 
     using Fizzler.Systems.HtmlAgilityPack;
 
@@ -14,9 +15,12 @@
     {
         private readonly string cssSelector;
 
-        public CssInnerHtmlResolver(string cssSelector)
+        private readonly IHtmlParser htmlParser;
+
+        public CssInnerHtmlResolver(string cssSelector, IHtmlParser htmlParser)
         {
             this.cssSelector = cssSelector;
+            this.htmlParser = htmlParser;
         }
 
         public TData GetValue(string content)
@@ -37,7 +41,8 @@
                     return default(TData);
                 }
 
-                return (TData)Convert.ChangeType(htmlNode.InnerHtml, typeof(TData));
+                var value = this.htmlParser.Parse(htmlNode.InnerHtml);
+                return (TData)Convert.ChangeType(value, typeof(TData));
             }
             catch (Exception exception)
             {

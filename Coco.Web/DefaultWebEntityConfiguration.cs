@@ -4,19 +4,14 @@
     using System.Collections.Generic;
     using System.Linq.Expressions;
 
-    using Coco.Web.Parsers;
-
     public class DefaultWebEntityConfiguration<TDto> : IWebEntityConfiguration
     {
         private readonly IDictionary<string, IWebValueResolver<object>> propertyValueResolvers;
 
         private DefaultItemValueResolverBuilder itemValueResolverBuilder;
 
-        private readonly IHtmlParser parser;
-
-        public DefaultWebEntityConfiguration(IHtmlParser htmlParser = null)
+        public DefaultWebEntityConfiguration()
         {
-            this.parser = htmlParser ?? new DefaultHtmlParser();
             this.propertyValueResolvers = new Dictionary<string, IWebValueResolver<object>>();
         }
 

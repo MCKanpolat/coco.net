@@ -4,14 +4,15 @@
 
     using Coco.Core.Web;
     using Coco.Core.Web.Resolvers;
+    using Coco.Web.Parsers;
 
     public class DefaultItemValueResolverBuilder : IValueResolverBuilder<string>
     {
         private IWebValueResolver<string> itemValueResolver;
         
-        public void InnerHtml(string cssSelection)
+        public void InnerHtml(string cssSelection, IHtmlParser parser = null)
         {
-            this.itemValueResolver = new CssInnerHtmlResolver<string>(cssSelection);
+            this.itemValueResolver = new CssInnerHtmlResolver<string>(cssSelection, parser);
         }
 
         public void FromCss(string cssSelection)
