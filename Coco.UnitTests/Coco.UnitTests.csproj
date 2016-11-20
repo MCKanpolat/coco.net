@@ -71,6 +71,9 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Models\Test.cs" />
     <Compile Include="Models\TestSource.cs" />
+    <Compile Include="Configurations\GooglePagingConfiguration.cs" />
+    <Compile Include="Models\GoogleResult.cs" />
+    <Compile Include="Configurations\GoogleResultConfiguration.cs" />
     <Compile Include="Tests\WebContentTests.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -81,6 +84,10 @@
     <ProjectReference Include="..\Coco.Core\Coco.Core.csproj">
       <Project>{8BE9237E-9588-40AB-A343-3B18FD033308}</Project>
       <Name>Coco.Core</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Coco.Web\Coco.Web.csproj">
+      <Project>{37F66A99-4F3C-422B-BDE2-2FE2E5B13094}</Project>
+      <Name>Coco.Web</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

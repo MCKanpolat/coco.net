@@ -1,10 +1,12 @@
-﻿namespace Coco.Core.Web
+﻿namespace Coco.Web
 {
     using System;
     using System.Collections.Generic;
     using System.Linq;
     using System.Reflection;
     using System.Threading.Tasks;
+
+    using Coco.Core;
 
     public class WebContentSource<TDto> : ICocoSource<TDto>
         where TDto : new()
@@ -32,8 +34,9 @@
             var items = itemValueResolver.GetValues(this.content);
 
             var writeableProperties = typeof(TDto)
-                    .GetProperties(BindingFlags.Public | BindingFlags.Instance)
-                    .Where(p => p.CanWrite);
+                .GetProperties(BindingFlags.Public | BindingFlags.Instance)
+                .Where(p => p.CanWrite)
+                .ToList();
 
             foreach (var itemContent in items)
             {

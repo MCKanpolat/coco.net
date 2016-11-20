@@ -1,17 +1,22 @@
-﻿namespace Coco.Core.Web
+﻿namespace Coco.Web
 {
     using System;
     using System.Collections.Generic;
     using System.Linq.Expressions;
 
-    public class WebEntityConfiguration<TDto> : IWebEntityConfiguration
+    using Coco.Web.Parsers;
+
+    public class DefaultWebEntityConfiguration<TDto> : IWebEntityConfiguration
     {
         private readonly IDictionary<string, IWebValueResolver<object>> propertyValueResolvers;
 
         private DefaultItemValueResolverBuilder itemValueResolverBuilder;
 
-        public WebEntityConfiguration()
+        private readonly IHtmlParser parser;
+
+        public DefaultWebEntityConfiguration(IHtmlParser htmlParser = null)
         {
+            this.parser = htmlParser ?? new DefaultHtmlParser();
             this.propertyValueResolvers = new Dictionary<string, IWebValueResolver<object>>();
         }
 

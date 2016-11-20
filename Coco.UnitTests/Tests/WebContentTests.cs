@@ -1,40 +1,39 @@
 ﻿namespace Coco.UnitTests.Tests
 {
     using System;
-    using System.Data;
 
-    using Coco.Core.Web;
+    using Coco.UnitTests.Configurations;
+    using Coco.UnitTests.Models;
+    using Coco.Web;
+    using Coco.Web.Http;
 
     using Xunit;
 
     public class WebContentTests
     {
         [Fact]
-        public async void Foo()
+        public async void UriSourceReturnsItems()
         {
-            var webContent = new WebUriSource<GoogleResult>(
+            var source = new WebUriSource<GoogleResult>(
+                new DefaultHttpClientFactory(),
                 new Uri("https://www.google.co.uk/search?q=trump"), 
                 new GoogleResultConfiguration());
 
-            var results = await webContent.Retrieve();
+            var results = await source.Retrieve();
             Assert.NotNull(results);
         }
-    }
 
-    public class GoogleResultConfiguration : WebEntityConfiguration<GoogleResult>
-    {
-        public GoogleResultConfiguration()
+        [Fact]
+        public async void PagedUriSourceReturnsItems()
         {
-            this.Item().InnerHtml("div.g");
-            this.Property(r => r.Title).InnerHtml("h3.r a");
-            this.Property(r => r.Description).InnerHtml("span.st");
+            var source = new WebUriPagedSource<GoogleResult>(
+                new DefaultHttpClientFactory(carryOverCookies: true),
+                new Uri("https://www.google.co.uk/search?q=trump"),
+                new GoogleResultConfiguration(), 
+                new GooglePagingConfiguration());
+
+            var results = await source.Retrieve();
+            Assert.NotNull(results);
         }
-    }
-
-    public class GoogleResult
-    {
-        public string Title { get; set; }
-
-        public string Description { get; set; }
     }
 }

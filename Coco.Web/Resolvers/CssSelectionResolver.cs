@@ -3,6 +3,8 @@
     using System;
     using System.Collections.Generic;
 
+    using Coco.Web;
+
     public class CssSelectionResolver<TData> : IWebValueResolver<TData>
     {
         private readonly string cssSelection;

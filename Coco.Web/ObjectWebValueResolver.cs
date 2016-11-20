@@ -1,13 +1,13 @@
-﻿namespace Coco.Core.Web
+﻿namespace Coco.Web
 {
     using System.Collections.Generic;
     using System.Linq;
 
-    public class FooBar<TData> : IWebValueResolver<object>
+    public class ObjectWebValueResolver<TData> : IWebValueResolver<object>
     {
         private readonly IWebValueResolver<TData> webValueResolver;
         
-        public FooBar(IWebValueResolver<TData> webValueResolver)
+        public ObjectWebValueResolver(IWebValueResolver<TData> webValueResolver)
         {
             this.webValueResolver = webValueResolver;
         }

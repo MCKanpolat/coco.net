@@ -4,6 +4,8 @@
     using System.Collections.Generic;
     using System.Linq;
 
+    using Coco.Web;
+
     using Fizzler.Systems.HtmlAgilityPack;
 
     using HtmlAgilityPack;

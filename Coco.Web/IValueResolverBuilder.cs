@@ -1,4 +1,4 @@
-namespace Coco.Core.Web
+namespace Coco.Web
 {
     using System;
 

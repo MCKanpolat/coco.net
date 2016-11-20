@@ -1,7 +1,8 @@
-﻿namespace Coco.Core.Web
+﻿namespace Coco.Web
 {
     using System;
 
+    using Coco.Core.Web;
     using Coco.Core.Web.Resolvers;
 
     public class DefaultItemValueResolverBuilder : IValueResolverBuilder<string>

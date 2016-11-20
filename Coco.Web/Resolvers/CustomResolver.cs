@@ -3,6 +3,8 @@ namespace Coco.Core.Web.Resolvers
     using System;
     using System.Collections.Generic;
 
+    using Coco.Web;
+
     public class CustomResolver<TData> : IWebValueResolver<TData>
     {
         private readonly Func<string, TData> resolver;

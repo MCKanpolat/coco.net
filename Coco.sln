@@ -7,6 +7,12 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Coco.UnitTests", "Coco.Unit
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Coco.Core", "Coco.Core\Coco.Core.csproj", "{8BE9237E-9588-40AB-A343-3B18FD033308}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Coco.Web", "Coco.Web\Coco.Web.csproj", "{37F66A99-4F3C-422B-BDE2-2FE2E5B13094}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Library", "Library", "{E3F46C98-3E6A-4047-B1A3-96809265AABB}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Tests", "Tests", "{D81DF992-A5BC-48F2-AC8E-460A9384AF72}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -21,8 +27,17 @@ Global
 		{8BE9237E-9588-40AB-A343-3B18FD033308}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{8BE9237E-9588-40AB-A343-3B18FD033308}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{8BE9237E-9588-40AB-A343-3B18FD033308}.Release|Any CPU.Build.0 = Release|Any CPU
+		{37F66A99-4F3C-422B-BDE2-2FE2E5B13094}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{37F66A99-4F3C-422B-BDE2-2FE2E5B13094}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{37F66A99-4F3C-422B-BDE2-2FE2E5B13094}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{37F66A99-4F3C-422B-BDE2-2FE2E5B13094}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{39391AF2-B34E-467B-927A-5F4245E897B1} = {D81DF992-A5BC-48F2-AC8E-460A9384AF72}
+		{8BE9237E-9588-40AB-A343-3B18FD033308} = {E3F46C98-3E6A-4047-B1A3-96809265AABB}
+		{37F66A99-4F3C-422B-BDE2-2FE2E5B13094} = {E3F46C98-3E6A-4047-B1A3-96809265AABB}
 	EndGlobalSection
 EndGlobal
