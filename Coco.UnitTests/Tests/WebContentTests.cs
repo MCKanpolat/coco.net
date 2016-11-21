@@ -15,7 +15,6 @@
         public async void UriSourceReturnsItems()
         {
             var source = new WebUriSource<GoogleResult>(
-                new DefaultHttpClientFactory(),
                 new Uri("https://www.google.co.uk/search?q=trump"), 
                 new GoogleResultConfiguration());
 
@@ -26,8 +25,7 @@
         [Fact]
         public async void PagedUriSourceReturnsItems()
         {
-            var source = new WebUriPagedSource<GoogleResult>(
-                new DefaultHttpClientFactory(carryOverCookies: true),
+            var source = new WebUriPagedSource<GoogleResult>(                
                 new Uri("https://www.google.co.uk/search?q=trump"),
                 new GoogleResultConfiguration(), 
                 new GooglePagingConfiguration());

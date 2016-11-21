@@ -20,15 +20,15 @@
         private readonly IPagingConfiguration pagingConfiguration;
 
         public WebUriPagedSource(
-            IHttpClientFactory clientFactory,
             Uri rootUri, 
             IWebEntityConfiguration entityConfiguration,
-            IPagingConfiguration pagingConfiguration)
+            IPagingConfiguration pagingConfiguration,
+            IHttpClientFactory clientFactory = null)
         {
-            this.clientFactory = clientFactory;
             this.rootUri = rootUri;
             this.entityConfiguration = entityConfiguration;
             this.pagingConfiguration = pagingConfiguration;
+            this.clientFactory = clientFactory ?? new DefaultHttpClientFactory(carryOverCookies: true);
         }
 
         public async Task<IEnumerable<TDto>> Retrieve()
@@ -71,7 +71,11 @@
 
                 var uri = $"{this.rootUri}&{pageSizeFragment}{currentPageFragment}";
 
-                var source = new WebUriSource<TDto>(this.clientFactory, new Uri(uri), this.entityConfiguration);
+                var source = new WebUriSource<TDto>(
+                    new Uri(uri), 
+                    this.entityConfiguration,
+                    this.clientFactory);
+
                 var items = await source.Retrieve();
                 results.AddRange(items);              
 

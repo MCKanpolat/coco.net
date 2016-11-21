@@ -10,19 +10,17 @@
     public class WebUriSource<TDto> : ICocoSource<TDto>
         where TDto : new()
     {
-        private readonly IHttpClientFactory clientFactory;
-
         private readonly Uri uri;
 
         private readonly IWebEntityConfiguration configuration;
 
-        public WebUriSource(IHttpClientFactory clientFactory, Uri uri, IWebEntityConfiguration configuration)
-        {
-            if (clientFactory == null)
-            {
-                throw new ArgumentNullException(nameof(clientFactory));
-            }
+        private readonly IHttpClientFactory clientFactory;
 
+        public WebUriSource(
+            Uri uri, 
+            IWebEntityConfiguration configuration,
+            IHttpClientFactory clientFactory = null)
+        {
             if (uri == null)
             {
                 throw new ArgumentNullException(nameof(uri));
@@ -33,10 +31,10 @@
                 throw new ArgumentNullException(nameof(configuration));
             }
 
-            this.clientFactory = clientFactory;
             this.uri = uri;
             this.configuration = configuration;
-        } 
+            this.clientFactory = clientFactory ?? new DefaultHttpClientFactory();
+        }
 
         public async Task<IEnumerable<TDto>> Retrieve()
         {
