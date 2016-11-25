@@ -80,7 +80,7 @@ public class GoogleResultConfiguration : WebEntityConfiguration<GoogleResult>
 }
 ```
 
-? Note the `InnerHtml` method will return the inner HTML of the element selected with the specified CSS selector. It will attempt to convert the inner HTML to the property type on your DTO.
+> Note the `InnerHtml` method will return the inner HTML of the element selected with the specified CSS selector. It will attempt to convert the inner HTML to the property type on your DTO.
 
 If you wish to retrieve items over several URIs, you can use the `WebUriPagedSource<TDto>`:
 
