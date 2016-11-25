@@ -86,7 +86,7 @@ If you wish to retrieve items over several URIs, you can use the `WebUriPagedSou
 
 ```csharp
 var source = new WebUriPagedSource<GoogleResult>(                
-  new Uri("https://www.google.co.uk/search?q=trump"),
+  new Uri("https://www.google.co.uk/search?q=foo"),
   new GoogleResultConfiguration(), 
   new GooglePagingConfiguration());
 ```
@@ -121,3 +121,5 @@ public class GooglePagingConfiguration : IPagingConfiguration
   public string CurrentPageParamName => "start";
 }
 ```
+
+> Note that Coco provides an `IncrementPageByPageSizeCalculator` and `IncrementPageByOneCalculator`
