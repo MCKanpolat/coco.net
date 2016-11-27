@@ -1,0 +1,19 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<package xmlns="http://schemas.microsoft.com/packaging/2012/06/nuspec.xsd">
+    <metadata>
+        <id>Coco.Web</id>
+        <version>0.2.0</version>
+        <authors>DevDigital</authors>
+        <requireLicenseAcceptance>false</requireLicenseAcceptance>
+        <description>.NET web content aggregator</description>
+        <dependencies>
+            <group targetFramework=".NETFramework4.5">
+                <dependency id="Coco" version="0.1.0" />
+                <dependency id="Fizzler.Systems.HtmlAgilityPack" version="1.0.0" />
+            </group>
+        </dependencies>
+    </metadata>
+    <files>
+        <file src="..\Source\Coco.Web\bin\Release\Coco.Web.dll" target="lib\net45\Coco.Web.dll" />
+    </files>
+</package>

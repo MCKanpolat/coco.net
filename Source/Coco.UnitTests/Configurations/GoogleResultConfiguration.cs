@@ -3,7 +3,7 @@ namespace Coco.UnitTests.Configurations
     using Coco.UnitTests.Models;
     using Coco.Web;
 
-    public class GoogleResultConfiguration : DefaultWebEntityConfiguration<GoogleResult>
+    public class GoogleResultConfiguration : WebEntityConfiguration<GoogleResult>
     {
         public GoogleResultConfiguration()
         {

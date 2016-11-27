@@ -80,7 +80,7 @@
     <Compile Include="Resolvers\CssSelectionResolver.cs" />
     <Compile Include="Resolvers\CustomResolver.cs" />
     <Compile Include="WebContentSource.cs" />
-    <Compile Include="DefaultWebEntityConfiguration.cs" />
+    <Compile Include="WebEntityConfiguration.cs" />
     <Compile Include="WebUriPagedSource.cs" />
     <Compile Include="WebUriSource.cs" />
   </ItemGroup>

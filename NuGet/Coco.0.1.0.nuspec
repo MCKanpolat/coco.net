@@ -1,0 +1,14 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<package xmlns="http://schemas.microsoft.com/packaging/2010/07/nuspec.xsd">
+    <metadata>
+        <id>Coco</id>
+        <version>0.1.0</version>
+        <title>Coco</title>
+        <authors>DevDigital</authors>
+        <requireLicenseAcceptance>false</requireLicenseAcceptance>
+        <description>.NET content aggregator</description>
+    </metadata>
+    <files>
+        <file src="..\Source\Coco.Core\bin\Release\Coco.Core.dll" target="lib\net45\Coco.Core.dll" />
+    </files>
+</package>

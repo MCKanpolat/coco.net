@@ -4,13 +4,13 @@
     using System.Collections.Generic;
     using System.Linq.Expressions;
 
-    public class DefaultWebEntityConfiguration<TDto> : IWebEntityConfiguration
+    public class WebEntityConfiguration<TDto> : IWebEntityConfiguration
     {
         private readonly IDictionary<string, IWebValueResolver<object>> propertyValueResolvers;
 
         private DefaultItemValueResolverBuilder itemValueResolverBuilder;
 
-        public DefaultWebEntityConfiguration()
+        public WebEntityConfiguration()
         {
             this.propertyValueResolvers = new Dictionary<string, IWebValueResolver<object>>();
         }
