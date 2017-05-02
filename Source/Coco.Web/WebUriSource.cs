@@ -43,7 +43,7 @@
                 var response = await client.Get(this.uri);
                 response.EnsureSuccessStatusCode();
                 var content = await response.GetContent();
-                var innerSource = new WebContentSource<TDto>(content, this.configuration);
+                var innerSource = new WebEntityContentSource<TDto>(content, this.configuration);
                 return await innerSource.Retrieve();
             }
         }

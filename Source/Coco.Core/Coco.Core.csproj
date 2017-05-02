@@ -46,6 +46,7 @@
     <Compile Include="ICocoSource.cs" />
     <Compile Include="IFromSourceBuilder.cs" />
     <Compile Include="IRunner.cs" />
+    <Compile Include="Maybe.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

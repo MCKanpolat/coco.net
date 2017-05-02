@@ -15,12 +15,9 @@
     {
         private readonly string cssSelector;
 
-        private readonly IHtmlParser htmlParser;
-
-        public CssInnerHtmlResolver(string cssSelector, IHtmlParser htmlParser)
+        public CssInnerHtmlResolver(string cssSelector)
         {
             this.cssSelector = cssSelector;
-            this.htmlParser = htmlParser;
         }
 
         public TData GetValue(string content)
@@ -41,8 +38,7 @@
                     return default(TData);
                 }
 
-                var value = this.htmlParser.Parse(htmlNode.InnerHtml);
-                return (TData)Convert.ChangeType(value, typeof(TData));
+                return (TData)Convert.ChangeType(htmlNode.InnerHtml, typeof(TData));
             }
             catch (Exception exception)
             {

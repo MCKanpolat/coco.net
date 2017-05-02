@@ -7,8 +7,6 @@
     using System.Net.Http;
     using System.Threading.Tasks;
 
-    using Coco.Core.Web;
-
     public class DefaultHttpClient : IHttpClient
     {
         private readonly bool carryOnCookies;
@@ -60,13 +58,13 @@
 
             if (this.carryOnCookies)
             {
-                this.StoreResponseCookies(response, this.previousCookies);
+                StoreResponseCookies(response, this.previousCookies);
             }
 
             return new DefaultHttpClientResponse(response);
         }
 
-        private void StoreResponseCookies(HttpResponseMessage response, IList<string> cookies)
+        private static void StoreResponseCookies(HttpResponseMessage response, ICollection<string> cookies)
         {
             // If any Set-Cookie in the response, then store the cookies for the next request
             var cookieHeader = response.Headers.FirstOrDefault(kvp => kvp.Key == "Set-Cookie");

@@ -8,7 +8,12 @@
     using Coco.Core;
     using Coco.Web.Http;
 
-    public class WebUriPagedSource<TDto> : ICocoSource<TDto>
+    public interface ICocoSourceFromUriFactory<TDto>
+    {
+        ICocoSource<TDto> Create(Uri uri);
+    }
+
+    public class WebPagedSource<TDto> : ICocoSource<TDto>
         where TDto : new()
     {
         private readonly IHttpClientFactory clientFactory;
@@ -19,7 +24,7 @@
 
         private readonly IPagingConfiguration pagingConfiguration;
 
-        public WebUriPagedSource(
+        public WebPagedSource(
             Uri rootUri, 
             IWebEntityConfiguration entityConfiguration,
             IPagingConfiguration pagingConfiguration,
@@ -53,8 +58,7 @@
                 return Enumerable.Empty<TDto>();
             }
 
-            var results = new List<TDto>();
-            var currentPage = 1;          
+            var results = new List<TDto>();        
             var currentRecord = this.pagingConfiguration.GetNextPage(pageDetails, pageDetails.StartPage);
 
             while (currentRecord != -1)
@@ -77,9 +81,8 @@
                     this.clientFactory);
 
                 var items = await source.Retrieve();
-                results.AddRange(items);              
-
-                currentPage++;               
+                results.AddRange(items);
+  
                 currentRecord = this.pagingConfiguration.GetNextPage(pageDetails, currentRecord);
             }
 

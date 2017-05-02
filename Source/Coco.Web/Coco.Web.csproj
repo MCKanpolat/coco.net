@@ -79,9 +79,9 @@
     <Compile Include="Resolvers\CssInnerHtmlResolver.cs" />
     <Compile Include="Resolvers\CssSelectionResolver.cs" />
     <Compile Include="Resolvers\CustomResolver.cs" />
-    <Compile Include="WebContentSource.cs" />
+    <Compile Include="WebEntityContentSource.cs" />
     <Compile Include="WebEntityConfiguration.cs" />
-    <Compile Include="WebUriPagedSource.cs" />
+    <Compile Include="WebPagedSource.cs" />
     <Compile Include="WebUriSource.cs" />
   </ItemGroup>
   <ItemGroup>

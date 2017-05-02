@@ -4,8 +4,7 @@
     using System.Collections.Generic;
 
     using Coco.Core.Web.Resolvers;
-    using Coco.Web.Parsers;
-
+    
     public class PropertyValueResolverBuilder<TData> : IValueResolverBuilder<TData>
     {
         private readonly string propertyId;
@@ -28,14 +27,12 @@
             this.propertyId = propertyId;
         }
 
-        public void InnerHtml(string cssSelector, IHtmlParser parser = null)
+        public void InnerHtml(string cssSelector)
         {
             this.AddPropertyValueResolver(
                 this.propertyId,
                 new ObjectWebValueResolver<TData>(
-                    new CssInnerHtmlResolver<TData>(
-                        cssSelector,
-                        parser ?? new DefaultHtmlParser())));
+                    new CssInnerHtmlResolver<TData>(cssSelector)));
         }
 
         public void FromCss(string cssSelection)

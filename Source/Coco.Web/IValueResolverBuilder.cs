@@ -6,7 +6,7 @@ namespace Coco.Web
 
     public interface IValueResolverBuilder<in TData>
     {
-        void InnerHtml(string cssSelection, IHtmlParser parser = null);
+        void InnerHtml(string cssSelection);
         
         void FromCss(string cssSelection);
 

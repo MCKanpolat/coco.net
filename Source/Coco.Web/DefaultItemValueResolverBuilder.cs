@@ -10,9 +10,9 @@
     {
         private IWebValueResolver<string> itemValueResolver;
         
-        public void InnerHtml(string cssSelection, IHtmlParser parser = null)
+        public void InnerHtml(string cssSelection)
         {
-            this.itemValueResolver = new CssInnerHtmlResolver<string>(cssSelection, parser);
+            this.itemValueResolver = new CssInnerHtmlResolver<string>(cssSelection);
         }
 
         public void FromCss(string cssSelection)

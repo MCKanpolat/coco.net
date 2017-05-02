@@ -5,8 +5,7 @@
     using Coco.UnitTests.Configurations;
     using Coco.UnitTests.Models;
     using Coco.Web;
-    using Coco.Web.Http;
-
+ 
     using Xunit;
 
     public class WebContentTests
@@ -15,7 +14,7 @@
         public async void UriSourceReturnsItems()
         {
             var source = new WebUriSource<GoogleResult>(
-                new Uri("https://www.google.co.uk/search?q=trump"), 
+                new Uri("https://www.google.co.uk/search?q=foo"), 
                 new GoogleResultConfiguration());
 
             var results = await source.Retrieve();
@@ -25,8 +24,8 @@
         [Fact]
         public async void PagedUriSourceReturnsItems()
         {
-            var source = new WebUriPagedSource<GoogleResult>(                
-                new Uri("https://www.google.co.uk/search?q=trump"),
+            var source = new WebPagedSource<GoogleResult>(                
+                new Uri("https://www.google.co.uk/search?q=foo"),
                 new GoogleResultConfiguration(), 
                 new GooglePagingConfiguration());
 

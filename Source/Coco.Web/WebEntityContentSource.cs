@@ -7,17 +7,21 @@
     using System.Threading.Tasks;
 
     using Coco.Core;
+    using Coco.Web.Parsers;
 
-    public class WebContentSource<TDto> : ICocoSource<TDto>
+    public class WebContentSource 
+
+    public class WebEntityContentSource<TDto> : ICocoSource<TDto>
         where TDto : new()
     {
         private readonly string content;
 
         private readonly IWebEntityConfiguration configuration;
 
-        public WebContentSource(string content, IWebEntityConfiguration configuration)
+        public WebEntityContentSource(
+            string content)
         {
-            this.content = content; // itemValueResolver == null ? content : itemValueResolver.GetValues(content);
+            this.content = content;
             this.configuration = configuration;
         }
 
